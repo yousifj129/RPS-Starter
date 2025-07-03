@@ -48,10 +48,11 @@ function init() {
         
 
     }
-    function play(choice){
+    function play(event){
+        const choice = event.target.id
         const botChoiceIndex =Math.floor(Math.random() * 3);
         const botChoice = choices[botChoiceIndex]
-        choiceText.textContent = `You Chose ${choice} and the Bot Chose ${botChoice}`
+        choiceText.textContent = `You chose ${choice} and the Bot chose ${botChoice}`
         if(whoWins(choice, botChoice) == 1){
             win()
         }
@@ -65,16 +66,19 @@ function init() {
     
 
     /*----------------------------- Event Listeners -----------------------------*/
-    rockBtn.addEventListener("click", function(){
-        play("rock")
-    })
-    paperBtn.addEventListener("click", function(){
-        play("paper")
-    })
-    scissorsBtn.addEventListener("click", function(){
-        play("scissors")
-    })
+    // rockBtn.addEventListener("click", function(){
+    //     play("rock")
+    // })
+    // paperBtn.addEventListener("click", function(){
+    //     play("paper")
+    // })
+    // scissorsBtn.addEventListener("click", function(){
+    //     play("scissors")
+    // })
 
+    rockBtn.addEventListener("click", play)
+    paperBtn.addEventListener("click", play)
+    scissorsBtn.addEventListener("click", play)
 }
 
 document.addEventListener('DOMContentLoaded', init)
