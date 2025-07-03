@@ -14,6 +14,7 @@ function init() {
     const scissorsBtn = document.querySelector("#scissors")
     const resultDisplay = document.querySelector("#result-display")
     const choiceText = document.querySelector("#choices")
+    const imgShow = document.querySelector("img")
     /*-------------------------------- Functions --------------------------------*/
     function win(){
         wins++;
@@ -23,23 +24,28 @@ function init() {
         loses++;
         resultDisplay.textContent = `You Lost! \nWins: ${wins}, Ties: ${ties}, Loses: ${loses}`
     }
-    function tie(){
+    function tie(choice){
         ties++;
+        imgShow.src = choice+ ".png"
         resultDisplay.textContent = `Tie! \nWins: ${wins}, Ties: ${ties}, Loses: ${loses}`
 
     }
 
     function whoWins(choice1, choice2){
         if(choice1 == choice2){
+            
             return 0
         }
         else if(choice1 == "rock" && choice2 == "scissors"){
+            imgShow.src = "../ROCK WINNING.png"
             return 1
         }
         else if(choice1 =="paper" && choice2 =="rock"){
+            imgShow.src = "../PAPER WINNING.png"
             return 1
         }
         else if(choice1 =="scissors" && choice2 =="paper"){
+            imgShow.src = "../SCISSOR WINS.png"
             return 1
         }
         else{
@@ -60,8 +66,9 @@ function init() {
             lose()
         }
         else {
-            tie()
+            tie(choice)
         }
+        whoWins(botChoice, choice)
     }
     
 

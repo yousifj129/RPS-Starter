@@ -32,3 +32,9 @@ button:hover {
   border: 1px solid rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
+
+img{
+  width: 470px;
+  height: 300px;
+  background-size: cover;
+}
